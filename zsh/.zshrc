@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Use doas instead of sudo
-alias sudo='doas'
+# alias sudo='doas'
 
 # Changing "ls" to "lsd"
 alias ls='lsd --group-dirs first'
