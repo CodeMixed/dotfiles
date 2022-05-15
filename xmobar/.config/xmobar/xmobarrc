@@ -1,0 +1,44 @@
+Config { font = "xft:JetBrainsMono Nerd Font:weight=bold:pixelsize=18:antialias=true:hinting=true"
+       , additionalFonts = []
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , alpha = 255
+       , position = TopSize L 100 24
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       -- sasa
+       , commands = [ Run Weather "EGPF" ["-t","<station>: <tempC>C",
+                                          "-L","18","-H","25",
+                                          "--normal","green",
+                                          "--high","red",
+                                          "--low","lightblue"] 36000
+                    -- , Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 3600
+                    , Run Network "eno1" ["-L","0","-H","32","--normal","green","--high","red"] 50
+                    , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 50
+                    , Run Cpu ["-t", "<fn=2>\xf108 </fn> <total>%","-H","50","--high","red"] 20
+                    -- , Run Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 50
+                    , Run Memory ["-t","<fn=2>\xf233 </fn> <usedratio>%"] 50
+                    , Run DiskU [("/", "<fn=2>\xf7c9 </fn>HOME: <free> free"),("/mnt/games", "<fn=2>\xf7c9 </fn>GAMES: <free> free")] [] 60
+                    , Run Swap [] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "<fn=1>\xf073 </fn> %a %b %_d %Y %H:%M:%S" "date" 50
+                     -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com "$HOME/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       -- , template = "%cpu% | %memory% * %swap% | %eno1% - %eth1% }\
+       --              \{ <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
+       -- , template = "%cpu% | %memory% * %swap% | %eno1% }{ <fc=#ee9a00>%date%</fc>| %uname% %penguin%"
+       , template = "%StdinReader%}{%cpu% | %memory% | %disku% | <fc=#ee9a00>%date%</fc>            "
+       }
