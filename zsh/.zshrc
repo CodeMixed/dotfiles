@@ -103,27 +103,59 @@ source $ZSH/oh-my-zsh.sh
 # Use doas instead of sudo
 # alias sudo='doas'
 
+# Editor Config
+alias vim="nvim"
+alias nano="nano -EMWacuw$ --tabsize=4"
+alias c="code ."
+
 # Changing "ls" to "lsd"
 alias ls='lsd --group-dirs first'
 alias ll='lsd -lh --group-dirs first'
 alias la='lsd -alh --group-dirs first'
 
-# adding flags to commands
-alias cp="cp -i"     # confirm before overwriting something
-alias df='df -h'     # human-readable sizes
-alias free='free -m' # show sizes in MB
-
-# Cat command with line numbers
-alias cat='cat -n'
-
-# Copy with progress
-alias cpv='rsync -ah --info=progress2'
-
-## Colorize the grep command output for ease of use (good for log files)##
+# Colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+# adding flags to commands
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
+alias lynx='lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys'
+alias vifm='./.config/vifm/scripts/vifmrun'
+alias ncmpcpp='ncmpcpp ncmpcpp_directory=$HOME/.config/ncmpcpp/'
+alias mocp='mocp -M "$XDG_CONFIG_HOME"/moc -O MOCDir="$XDG_CONFIG_HOME"/moc'
+alias cp="cp -i"     # confirm before overwriting something
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
+
+# ps
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmem='ps auxf | sort -nr -k 4'
+alias pscpu='ps auxf | sort -nr -k 3'
+
+# Copy with progress
+alias cpv='rsync -ah --info=progress2'
+
+# git
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias stat='git status' # 'status' is protected name so using 'stat' instead
+alias tag='git tag'
+alias newtag='git tag -a'
+
+# Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # youtube-dl
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "
@@ -135,6 +167,9 @@ alias yta-opus="yt-dlp --extract-audio --audio-format opus "
 alias yta-vorbis="yt-dlp --extract-audio --audio-format vorbis "
 alias yta-wav="yt-dlp --extract-audio --audio-format wav "
 alias ytv-best="yt-dlp -f bestvideo+bestaudio "
+
+### RANDOM COLOR SCRIPT ###
+# colorscript random
 
 # Starship prompt
 eval "$(starship init zsh)"
