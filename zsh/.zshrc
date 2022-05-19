@@ -77,7 +77,7 @@ plugins=(
     vscode
     # zsh-autosuggestions
     copypath
-    copyfile
+    copyfilesss
     copybuffer
     dirhistory
     history
