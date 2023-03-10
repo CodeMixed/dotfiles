@@ -7,6 +7,9 @@ sxhkd -c ~/.config/bspwm/sxhkdrc &
 #picom --experimental-backend &
 picom &
 
+killall blueman-applet
+blueman-applet &
+
 # Start polybar
 pkill polybar
 polybar example &
