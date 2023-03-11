@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	konsole
+	alacritty
 
 # program launcher
 #super + @space
@@ -18,10 +18,10 @@ super + @space
 
 # Launch Browser
 super + b
-	brave-browser
+	brave
 
 super + e
-	pcmanfm
+	thunar
 
 
 # make sxhkd reload its configuration files:
