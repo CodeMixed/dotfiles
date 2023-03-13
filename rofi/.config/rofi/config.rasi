@@ -2,7 +2,7 @@ configuration {
   display-drun: "Apps:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "Hurmit Nerd Font Medium 14";
+  font: "Hurmit Nerd Font Medium 16";
   modi: "window,run,drun,emoji,calc";
 }
 

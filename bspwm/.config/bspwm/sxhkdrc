@@ -7,19 +7,18 @@ super + Return
 	alacritty
 
 # program launcher
-#super + @space
-#	dmenu_run
 super + @space
 	rofi -show drun -show-icons	
 
-# ==============
-# Applications
-# ==============
+#
+# applications
+#
 
-# Launch Browser
+# launch Browser
 super + b
 	brave
 
+# launch file explorer
 super + e
 	thunar
 
@@ -134,19 +133,31 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# Control Laptop Screen Brightness
-# with brightness keys
+#
+# Brightness
+#
+
+# Brightness UP
 XF86MonBrightnessUp
 	brightnessctl set +10%
 
+# Brightness DOWN
 XF86MonBrightnessDown
 	brightnessctl set 10%-
 
-# Control volume
+#
+# Volume Control
+#
+
+# Volume UP
 XF86AudioRaiseVolume
     pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# Volume DOWN
 XF86AudioLowerVolume
     pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Mute Sound
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
